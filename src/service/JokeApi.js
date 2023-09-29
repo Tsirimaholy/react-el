@@ -2,8 +2,8 @@ import api from "./api.js";
 
 class JokeApi {
     getRandomJoke() {
-        return api.get("/jokes/random");
+        return api.get("jokes/random");
     }
 }
 
-export default JokeApi();
+export default new JokeApi();
