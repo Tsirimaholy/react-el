@@ -27,9 +27,9 @@ function App() {
             <input {...register("author")} placeholder={"author"}/>
             <p>{errors.author?.message}</p>
 
-            <input {...register("email")} type="email"/>
+            <input {...register("email")} type="email" placeholder="john@mail.com"/>
             <p>{errors.email?.message}</p>
-            <textarea {...register("content")}/>
+            <textarea {...register("content")} placeholder="Somer joke"/>
             <p>{errors.content?.message}</p>
             <input type="submit" value={"Publier"}/>
         </form>
