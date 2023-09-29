@@ -25,9 +25,12 @@ function App() {
             </div>
             <div className="jokes-container">
                 <h2>Random joke</h2>
-                <div>
-                    <p>{joke.value}</p>
-                </div>
+                {joke ?
+                    (<div>
+                        <p>{joke.value}</p>
+                    </div>) : "No joke yet"
+                }
+
             </div>
         </div>
     )
