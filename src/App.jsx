@@ -23,16 +23,23 @@ function App() {
     const onSubmit = (data) => console.log(data)
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input {...register("author")} placeholder={"author"}/>
-            <p>{errors.author?.message}</p>
+        <div className="main-wrapper">
+            <div className="form-container">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <input {...register("author")} placeholder={"author"}/>
+                    <p>{errors.author?.message}</p>
 
-            <input {...register("email")} type="email" placeholder="john@mail.com"/>
-            <p>{errors.email?.message}</p>
-            <textarea {...register("content")} placeholder="Somer joke"/>
-            <p>{errors.content?.message}</p>
-            <input type="submit" value={"Publier"}/>
-        </form>
+                    <input {...register("email")} type="email" placeholder="john@mail.com"/>
+                    <p>{errors.email?.message}</p>
+                    <textarea {...register("content")} placeholder="Somer joke"/>
+                    <p>{errors.content?.message}</p>
+                    <input type="submit" value={"Publier"}/>
+                </form>
+            </div>
+            <div className="jokes-container">
+
+            </div>
+        </div>
     )
 }
 
