@@ -1,6 +1,7 @@
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import api from "../../service/api.js";
 
 const schema = yup
     .object({
@@ -18,7 +19,9 @@ function JokeForm() {
     } = useForm({
         resolver: yupResolver(schema),
     })
-    const onSubmit = (data) => console.log(data)
+    const onSubmit = async (data) => {
+        return api.post("jokes", data);
+    }
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register("author")} placeholder={"author"}/>
