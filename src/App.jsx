@@ -1,40 +1,12 @@
-import {useForm} from "react-hook-form"
-import * as yup from "yup";
-import {yupResolver} from "@hookform/resolvers/yup";
+import "./App.css"
+import JokeForm from "./component/core/JokeForm.jsx";
 
-
-
-const schema = yup
-    .object({
-        author: yup.string().required(),
-        email: yup.string().email(),
-        content: yup.string()
-    })
-    .required()
 
 function App() {
-    const {
-        register,
-        handleSubmit,
-        formState: {errors},
-    } = useForm({
-        resolver: yupResolver(schema),
-    })
-    const onSubmit = (data) => console.log(data)
-
     return (
         <div className="main-wrapper">
             <div className="form-container">
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <input {...register("author")} placeholder={"author"}/>
-                    <p>{errors.author?.message}</p>
-
-                    <input {...register("email")} type="email" placeholder="john@mail.com"/>
-                    <p>{errors.email?.message}</p>
-                    <textarea {...register("content")} placeholder="Somer joke"/>
-                    <p>{errors.content?.message}</p>
-                    <input type="submit" value={"Publier"}/>
-                </form>
+                <JokeForm/>
             </div>
             <div className="jokes-container">
 
